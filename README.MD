@@ -39,3 +39,5 @@ A interface é simples e amigável:
 5. O nome sorteado aparecerá na tela.
 
 
+## 🔗 Acesse o projeto online (opcional)
+[👉 Clique aqui para visualizar no GitHub Pages](https://samuel442.github.io/Challenge_Amigo_Secreto/)
