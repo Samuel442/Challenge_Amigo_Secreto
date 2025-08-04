@@ -1,33 +1,35 @@
-//O principal objetivo deste desafio é fortalecer suas habilidades em lógica de programação. Aqui você deverá desenvolver a lógica para resolver o problema.
+//O principal objetivo deste desafio é fortalecer suas habilidades em lógica de programação. 
+// Aqui você deverá desenvolver a lógica para resolver o problema.
 
 
 let amigos = []; // Vetor que vai guardar os nomes
 
 function adicionarAmigo() {
-    // Passo 1: Pega o valor digitado no campo de input
+    // Pega o valor digitado no campo de input
     let input = document.getElementById("amigo");
-    let nome = input.value.trim(); // .trim() remove espaços extras antes e depois
+    // .trim() remove espaços extras antes e depois caso tenha
+    let nome = input.value.trim(); 
 
-    // Passo 2: Validação se o campo está vazio
+    // Validação se o campo está vazio
     if (nome === "") {
         alert("Por favor, insira um nome.");
-        return; // Interrompe a função aqui
+        return; // Interrompe a função
     }
 
-    // Passo 3: Validação para permitir apenas letras
+    // Validação para permitir apenas letras
     let apenasLetras = /^[A-Za-zÀ-ú\s]+$/;
     if (!apenasLetras.test(nome)) {
         alert("Digite apenas letras.");
         return;
     }
 
-    // Passo 4: Adiciona o nome ao vetor
+    // Adiciona o nome ao vetor
     amigos.push(nome);
 
-    // Passo 5: Atualiza a lista visual na tela
+    // Atualiza a lista visual na tela
     atualizarLista();
 
-    // Passo 6: Limpa o campo de input
+    // Limpa o campo de input
     input.value = "";
 }
 
@@ -46,3 +48,20 @@ function atualizarLista() {
     }
 }
 
+function sortearAmigo() {
+    // Verifica se há amigos na lista
+    if (amigos.length === 0) {
+        alert("A lista de amigos está vazia. Adicione pelo menos um nome.");
+        return;
+    }
+
+    // Gera um índice aleatório baseado no tamanho do array
+    let indiceSorteado = Math.floor(Math.random() * amigos.length);
+
+    // Obtém o nome sorteado
+    let amigoSorteado = amigos[indiceSorteado];
+
+    // Exibe o nome sorteado na tela
+    let resultado = document.getElementById("resultado");
+    resultado.innerHTML = `🎉 Amigo sorteado: <strong>${amigoSorteado}</strong>`;
+}
