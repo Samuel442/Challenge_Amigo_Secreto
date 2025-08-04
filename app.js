@@ -31,5 +31,18 @@ function adicionarAmigo() {
     input.value = "";
 }
 
+// Função auxiliar para atualizar a lista na tela
+function atualizarLista() {
+    let lista = document.getElementById("listaAmigos");
 
+    // Limpa o conteúdo anterior da lista para não duplicar
+    lista.innerHTML = "";
+
+    // Adiciona cada nome como um <li> na <ul>
+    for (let i = 0; i < amigos.length; i++) {
+        let item = document.createElement("li");
+        item.textContent = amigos[i];
+        lista.appendChild(item);
+    }
+}
 
