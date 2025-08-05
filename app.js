@@ -17,6 +17,15 @@ function adicionarAmigo() {
     }
 
     // Validação para permitir apenas letras
+    // Permitir apenas letras (maiúsculas e minúsculas), incluindo acentos e espaços.
+    // ^  → início da string
+    // [A-Za-zÀ-ú\s] → conjunto de caracteres permitidos:
+    //    - A-Z: letras maiúsculas
+    //    - a-z: letras minúsculas
+    //    - À-ú: letras com acentuação comum em idiomas latinos (ex: á, é, õ, ç, etc.)
+    //    - \s: espaço em branco
+    // +  → indica que deve haver pelo menos um ou mais desses caracteres
+    // $  → fim da string
     let apenasLetras = /^[A-Za-zÀ-ú\s]+$/;
     if (!apenasLetras.test(nome)) {
         alert("Digite apenas letras.");
@@ -63,5 +72,5 @@ function sortearAmigo() {
 
     // Exibe o nome sorteado na tela
     let resultado = document.getElementById("resultado");
-    resultado.innerHTML = `🎉 Amigo sorteado: <strong>${amigoSorteado}</strong>`;
+    resultado.innerHTML = `Amigo sorteado foi o(a): <strong>${amigoSorteado}</strong>`;
 }
